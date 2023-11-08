@@ -1,0 +1,28 @@
+.two-columns {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .column {
+    flex: 1; /* Equal width for both columns */
+    padding: 10px; /* Add some spacing between columns */
+    border: 1px solid #ccc; /* Add borders for clarity */
+    display: flex;
+    flex-direction: column;
+  }
+ 
+  .bordered-div {
+    border: 2px solid black;
+    background-color: black;
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    position: relative;
+  }  
+
+  
+  .row {
+    display: flex; /* Make the row a flex container */
+    flex-direction: row; /* Stack its children from left to right */
+  }
+  
