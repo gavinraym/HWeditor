@@ -25,4 +25,12 @@
     display: flex; /* Make the row a flex container */
     flex-direction: row; /* Stack its children from left to right */
   }
+
+  #mcq-count-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap:10px;
+    margin: 10px;
+    width: 100%;
+  }
   

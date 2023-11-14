@@ -5,6 +5,7 @@ let frames = []; // Global variable to store frames
 const images = []; // Array to store the added images
 const WIDTH = 384;
 const HEIGHT = 288;
+const TEMP = "static/practice_problem_gen_temp/";
 
 // get all .bordered-div style and set width and height to WDITH and HEIGHT
 const borderedDivs = document.querySelectorAll('.bordered-div');
@@ -30,7 +31,7 @@ function recieveGif() {
   formData.append('gif', file);
 
   // Send the GIF file to the backend using fetch
-  fetch('/parse_gif', {
+  fetch('/practice-problem-generator/parse-gif', {
       method: 'POST',
       body: formData
   })
@@ -64,7 +65,7 @@ function updateSelectedFrame(num) {
     // load image path from static, don't allow  cached images
     const name = getFileName();
 
-    const imgpath = "static/images/" + name + "-" + selectedFrameIndex + ".png";
+    const imgpath = TEMP + name + "-" + selectedFrameIndex + ".png";
     img.src = imgpath;
     img.width = WIDTH;
     img.height = HEIGHT;
@@ -78,7 +79,7 @@ function updateSelectedFrame(num) {
     const frameSlider = document.getElementById('frameSlider');
     const selectedFrameIndex = parseInt(frameSlider.value);
     const name = getFileName();
-    const imgpath = "static/images/" + name + "-" + selectedFrameIndex + ".png";
+    const imgpath = TEMP + name + "-" + selectedFrameIndex + ".png";
     const img = document.createElement('img');
     img.src = imgpath;
 
@@ -280,7 +281,7 @@ function setMcqAmount(){
     row.classList.add('row');
     // Add a column with p contaning i
     const p = document.createElement('p');
-    p.innerHTML = i;
+    p.innerHTML = '#'+i+"=";
     row.appendChild(p);
     // Add a column with input
     // Create a new number input element
@@ -298,5 +299,20 @@ function setMcqAmount(){
   }
 }
 
+function ReplaceUUIDs(event) {
+    var fileInput = document.getElementById('uuid-fileInput');
+    var file = fileInput.files[0];
+    // Create a FormData object to send the file
+    var formData = new FormData();
+    formData.append('file', file);
+    // Send the file to the backend using fetch
+    fetch('/replace_uuids', {
+        method: 'POST',
+        body: formData
+    })
+}
+
+
+// Initializes the PP bulider section
 clearCard();
 setMcqAmount();

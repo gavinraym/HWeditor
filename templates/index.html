@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,9 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <title>GIF Viewer</title>
 </head>
+
 <body>
-    <div>
+    <div id="pp-section">
         <h1>Practice Problem GIF and Json Creator</h1>
         <hr>
         <div class="two-columns">
@@ -19,24 +21,25 @@
                 <!-- Display area for the selected frame -->
                 <div id="frameDisplay" class="bordered-div"></div>
                 <div class="row">
-                   <input type="file" id="fileInput" accept="image/gif" onchange="recieveGif(event)">
+                    <input type="file" id="fileInput" accept="image/gif" onchange="recieveGif(event)">
                     <!-- Slider for selecting a frame -->
-                    </div>
+                </div>
                 <div class="row">
                     <label for="frameSlider">Select Frame:</label>
-                    <input type="range" id="frameSlider" min="1" max="20" step="1" value="0" onchange="updateSelectedFrame()">
+                    <input type="range" id="frameSlider" min="1" max="20" step="1" value="0"
+                        onchange="updateSelectedFrame()">
                 </div>
                 <div class="row">
                     <!-- Button for adding gif frame to canvas -->
                     <button id="addButton" onclick="addFrame()">Add Image -></button>
                 </div>
-                </div>
+            </div>
             <div class="column">
                 <!-- Content for the second column -->
                 <p>View the created image and save it from over here.</p>
                 <!-- Display area for the selected frames -->
                 <div id="cardDisplay" class="bordered-div"></div>
-                
+
                 <div class="row">
                     <button id="saveButton" onclick="saveCard()">Save Image</button>
                     <button id="clearButton" onclick="clearCard()">Clear Canvas</button>
@@ -44,8 +47,8 @@
                 <div class="row">
                     <!--add text input for setting file name-->
                     <label for="fileNameInput">File Name:</label>
-                    <input type="text" id="fileNameInput" value="card" >
-                    
+                    <input type="text" id="fileNameInput" value="card">
+
                 </div>
             </div>
             <div class="column">
@@ -61,13 +64,19 @@
                 <div class="row">
                     <div id="mcq-count-container" class="column"></div>
                 </div>
-                    
+
             </div>
         </div>
+    </div>
+    <div id="uuid-section">
+        <h1>UUID Replacer and Criteria Builder</h1>
+        <hr>
+        <input type="file" id="uuid-fileInput" accept=".json" onchange="ReplaceUUIDs(event)">
+    </div>
 
-    
 
 
     <script src="{{ url_for('static', filename='functions.js') }}"></script>
 </body>
+
 </html>

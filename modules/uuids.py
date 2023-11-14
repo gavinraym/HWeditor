@@ -195,7 +195,6 @@ def criteria(data):
             rubric(checkpoint)
             
         elif "Debugging Challenge" in checkpoint["title"]:
-            breakpoint()
             add_component(checkpoint)
             add_context(checkpoint["block"]["id"], "Debugging Challenges")
             
@@ -226,15 +225,12 @@ def criteria(data):
     # Adding criteria to data
     data["scoring"]["criteria"] = criteria
 
-def proecess_file(file_name):
-    # Open the JSON file
-    path = os.path.join(input_dir, file_name)
-    with open(path, 'r') as file:
-        data = json.load(file)
+def process_dict(data):
         
     # Add temp fields for storing checkpoint UUIDs
     data["temp"] = dict()
     data["temp"]["checkpoints"] = list()
+    data["scoring"] = dict()
     
     # Process project data
     if not data.get("id"): data = {"id": new_id(), **data}
@@ -245,11 +241,17 @@ def proecess_file(file_name):
     
     # Delete temp and save
     del data["temp"]
-    output_file = os.path.join(output_dir, file_name)
-    with open(output_file, 'w') as file:
-        json.dump(data, file, indent=2)
+    return data
+
+def process_file(file):
+    data = json.load(file)
+    process_dict(data)
         
 def run():
     for file in os.listdir(input_dir):
         if file.endswith(".json"):
-            proecess_file(file)
+            process_file(file)
+
+
+if __name__ == "__main__":
+    run()
