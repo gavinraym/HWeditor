@@ -245,7 +245,9 @@ def process_dict(data):
 
 def process_file(file):
     data = json.load(file)
-    process_dict(data)
+    data = process_dict(data)
+    with open(os.path.join(output_dir, "project.json"), "w") as f:
+        json.dump(data, f, indent=4)
         
 def run():
     for file in os.listdir(input_dir):

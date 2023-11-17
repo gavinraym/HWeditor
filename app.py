@@ -6,7 +6,7 @@ import webbrowser
 import threading
 import subprocess
 from modules.pp import new_pp
-from modules import mcq_funcs, pp_funcs
+from modules import mcq_funcs, pp_funcs, uuids
 import json
 
 # Configuration settings
@@ -16,7 +16,7 @@ app.config['SECRET_KEY'] = 'your_secret_key_here'
 
 # Main Routes
 @app.route('/')
-def index():
+def home():
     return render_template('base.html')
 
 @app.route('/practice-problem-generator', methods=['GET'])
@@ -30,6 +30,21 @@ def multiple_choice_generator():
 @app.route('/uuid-replacer', methods=['GET'])
 def uuid_replacer():
     return render_template('uuid-replacer.html')
+
+@app.route('/code-snippet', methods=['GET'])
+def code_snippet():
+    return render_template('code-snippet.html')
+
+@app.route('/pick-code', methods=['GET'])
+def pick_code():
+    return render_template('pick-code.html')
+
+# Helper Routes
+@app.route('/open_save_dir', methods=['GET'])
+def open_save_dir():
+    # Open the save directory
+    subprocess.run(['open', '-a', 'Finder', 'output/.'])
+    return jsonify(), 200
 
 # Practice Problem Generator routes
 @app.route('/practice-problem-generator/parse-gif', methods=['POST'])
@@ -51,12 +66,6 @@ def save_card():
         return jsonify(), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
-
-@app.route('/open_save_dir', methods=['GET'])
-def open_save_dir():
-    # Open the save directory
-    subprocess.run(['open', '-a', 'Finder', 'output/.'])
-    return jsonify(), 200
 
 @app.route('/replace_uuids', methods=['POST'])
 def replace_uuids():
@@ -80,6 +89,18 @@ def new_exam():
     try:
         data = mcq_funcs.new_exam(int(request.form['number-of-questions']))
         return json.dumps(data), 200, {'Content-Type': 'text/plain; charset=utf-8'}
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+    
+## UUID Replacer routes
+@app.route('/uuid-replacer/upload', methods=['POST'])
+def upload():
+    try:
+        file = request.files['file']
+        from modules.uuids import process_file
+        process_file(file)
+        open_save_dir()
+        return jsonify(), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 

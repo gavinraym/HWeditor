@@ -1,0 +1,33 @@
+
+{% extends "base.html" %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='pick-code-styles.css') }}">
+{% endblock %}
+{% block content %}
+
+
+
+    <!-- To Pickcode div -->
+    <div class="pick-container">
+        <!-- Left side of the output (blank div for now) -->
+        <div class="pick-input">
+            <h2>Input For pickCode Conversion </h2>
+            <p>Paste your script here.</p>
+            <textarea id="input-text-pickcode" rows="10" cols="50"></textarea>
+            <!-- You can add any formatting controls here as per your requirement -->
+        </div>
+        <!-- Vertical bar separator -->
+        <div class="vertical-bar"></div>
+        <!-- Right side of the output (for displaying unformatted text) -->
+        <div class="pick-output">
+            <h2>Output</h2>
+            <button class="clicky" onclick="copyPickCodeOutputToClipboard()">Copy to clipboard.</button>
+            <div id="display-area-pickcode"></div>
+        </div>
+    </div>
+
+
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='pick-code-script.js') }}"></script>
+{% endblock %}

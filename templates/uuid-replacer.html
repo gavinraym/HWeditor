@@ -3,7 +3,31 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='uuid-replacer-styles.css') }}">
 {% endblock %}
 {% block content %}
-<p>COMING SOON</p>
+<h1>UUID Replacer and Criteria Builder</h1>
+<hr>
+<h4><b>Upload a project.json to have the UUIDs replaced with new ones!</b> If UUIDs are missing from the file, this tool will add them. It also replaces the Criteria section with a new one, ensuring that all activity UUIDs are properly in place.</h4>
+<h4>Yes that's right! You no longer have to add id fields or the criteria section manually when writing Json files. And if you are using a template copied from a project that already has them, it's fine to leave them in.</h4>
+<h4><b>Please keep in mind a few things while using this tool.</b> The course UUID, which is the id field at the topmost level, will <b>not</b> be replaced if it exists. This is in case a template was linked to the course Json file when created. If the first id is not correct, just remove it and this program with create a new one.</h4>
+<h4>Also, in order for this tool to correctly identify different activity/checkpoint types, the correct naming conventions must be used. Here is a list of the currently supported activities/checkpoints and how they are identified:</h4>
+<ul>
+    <li>Short Answer: The block's 'variant' must be set to 'short_answer'.</li>
+    <li>Rubric: The block's 'variant' must be set to 'rubric'.</li>
+    <li>Debugging Challenge: The checkpoint's 'title' must contain 'Debugging Challenge'.</li>
+    <li>Project Example: The checkpoint's 'title' must contain 'Project Example'.</li>
+    <li>Vocabulary: The checkpoint's 'title' must contain 'Vocabulary Check'.</li>
+    <li>Code Review: The checkpoint's 'title' must contain 'Code Review'.</li>
+    <li>Core Concept Review: The checkpoint's 'title' must contain 'checkpoint-set'.</li>
+    <li>MCQs: The checkpoint-set's 'tool' must be 'checkpoint-set'.</li>
+</ul>
+<h4>If an activity does not match these criteria exactly, it will not be added to the Criteria section! I engineered these to match what I see currently being used in the json files. If something needs to be added or changed, please just let me know! It is really easy to update these.</h3>
+<hr>
+<h3>To use, simply upload a json file.</h3>
+<!--File upload, for json type-->
+<label for="file">Upload a project.json file:</label>
+<input type="file" id="fileInput" accept=".json" onchange="loadFile(event)">
+
+
+
 {% endblock %}
 
 {% block scripts %}

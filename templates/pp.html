@@ -4,7 +4,7 @@
     <div class="two-columns">
         <div class="column">
             <!-- Content for the first column -->
-            <p>Add gif and select a frame on this side.</p>
+            
             <!-- Input field for uploading a GIF file -->
             <!-- Display area for the selected frame -->
             <div id="frameDisplay" class="bordered-div"></div>
@@ -17,6 +17,7 @@
                 <input type="range" id="frameSlider" min="1" max="20" step="1" value="0"
                     onchange="updateSelectedFrame()">
             </div>
+            <p>Use 'Choose File' to select a gif, and 'Selecte Frame' to choose one frame from the gif to add to the png.</p>
             <div class="row">
                 <!-- Button for adding gif frame to canvas -->
                 <button id="addButton" onclick="addFrame()">Add Image -></button>
