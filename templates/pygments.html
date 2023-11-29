@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='pygments-styles.css') }}">
+{% endblock %}
+{% block content %}
+<h1>Code Highlighting with Pygments</h1>
+<div class="row">
+    <div class="column">
+        <label for="language-select">Select a programming language:</label>
+        <select id="language-select">
+            <option value="python">Python</option>
+            <option value="java">Java</option>
+            <option value="html">HTML</option>
+            <option value="css">CSS</option>
+        </select>
+        <br>
+        <label>Select 'mark' or 'del' and then apply by selecting the text:</label>
+        <select id="actionSelect">
+            <option value="clear">Clear</option>
+            <option value="mark">Mark</option>
+            <option value="del">Del</option>
+        </select>
+        <label>Add code here:</label>
+        <textarea id="code-input" rows="10" cols="80" oninput="updateHighlight()"></textarea>
+        </div>  
+    <div class="column">
+        <div id="code-output-editor">
+            <label>Highlighted section will display here so that you can add mark and del.</label>
+            
+            <button onclick="updateHighlight()">Clear</button>
+            <div id="code-output-display" rows="10" cols="80"></div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <button onclick="copy()">Copy to clipboard</button>
+    <div id="code-output-final" rows="10" cols="80"></div>
+</div>
+
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='pygments-script.js') }}"></script>
+{% endblock %}

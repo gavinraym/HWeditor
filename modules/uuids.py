@@ -7,10 +7,9 @@ def new_id(): return str(uuid.uuid4())
 
 
 # Check if the script is being run from the root level
-input_dir = os.path.join("input")
 output_dir = os.path.join("output")
-if not os.path.exists(input_dir) or not os.path.exists(output_dir):
-    print("Please run this script from the root level where 'editor' directory is located.")
+if not os.path.exists(output_dir):
+    print("Please create an directory called 'output' at the root.")
     exit(1)
 
 

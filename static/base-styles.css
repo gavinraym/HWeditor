@@ -67,3 +67,17 @@ input {
     min-height: 100vh;
 }
 
+
+  
+.row {
+    display: flex; /* Make the row a flex container */
+    flex-direction: row; /* Stack its children from left to right */
+  }
+
+.column {
+flex: 1; /* Equal width for both columns */
+padding: 10px; /* Add some spacing between columns */
+border: 1px solid #ccc; /* Add borders for clarity */
+display: flex;
+flex-direction: column;
+}

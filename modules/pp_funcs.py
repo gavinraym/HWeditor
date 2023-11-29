@@ -54,7 +54,7 @@ def save_card(num_mcqs, filename, projectname, card):
 
     # Create the JSON file
     pp_data, course_data = new_pp(filename, num_mcqs)
-    with open(os.path.join(project_path, filename + '.json'), 'w') as f:
+    with open(os.path.join(project_path, 'project.json'), 'w') as f:
         json.dump(pp_data, f, indent=4)
     with open(os.path.join(save_path, 'course_data.txt'), 'a') as f:
         f.write(course_data)    

@@ -1,5 +1,6 @@
 import os
 import uuid
+import json
 
 
 def new_mcq(number_of_questions=1):
@@ -165,6 +166,9 @@ def new_exam(number_of_questions=1):
     }
             ],
     }
+    print("Outputting mcq data to output/test.json")
+    with open("output/test.json", "w") as f:
+        json.dump(data, f, indent=4)
 
     from modules.uuids import process_dict
     return process_dict(data)

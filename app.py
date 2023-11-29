@@ -9,6 +9,8 @@ from modules.pp import new_pp
 from modules import mcq_funcs, pp_funcs, uuids
 import json
 
+from modules.snippets import snippets
+
 # Configuration settings
 app = Flask(__name__)
 app.config['DEBUG'] = True
@@ -34,6 +36,10 @@ def uuid_replacer():
 @app.route('/code-snippet', methods=['GET'])
 def code_snippet():
     return render_template('code-snippet.html')
+
+@app.route('/pygments', methods=['GET'])
+def pygments():
+    return render_template('pygments.html')
 
 @app.route('/pick-code', methods=['GET'])
 def pick_code():
@@ -103,6 +109,27 @@ def upload():
         return jsonify(), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+    
+## Code Snippet routes
+@app.route('/highlight', methods=['POST'])
+def highlight_code():
+
+    # Parse the JSON strings back to lists of integers if they are not empty or null
+    # mark_starts = json.loads(request.form.get('markStarts')) if request.form.get('markStarts') else []
+    # mark_ends = json.loads(request.form.get('markEnds')) if request.form.get('markEnds') else []
+    # strike_starts = json.loads(request.form.get('strikeStarts')) if request.form.get('strikeStarts') else []
+    # strike_ends = json.loads(request.form.get('strikeEnds')) if request.form.get('strikeEnds') else []
+
+    return jsonify({"highlighted_code":snippets.highlight_code(
+        request.form.get('code'), request.form.get('language')
+    )}), 200
+
+@app.route('/get_styles', methods=['POST'])
+def get_styles():
+    return jsonify({"styles":snippets.get_styles(
+        request.form.get('language')
+    )}), 200
+
 
 ## App start-up
 
@@ -127,4 +154,7 @@ def start_app():
 
 # Allows for running the app from the command line
 if __name__ == '__main__':
+    # Start the Flask app in the main thread
+    # app.run(debug=True)
+    #OR!!! Start with auto-open browser
     start_app()

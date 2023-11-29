@@ -77,22 +77,22 @@ def new_pp(name, num_qs):
                         ],
                         "choices": [
                             {
-                                "id": "e84c2d7a-1914-4018-9b55-392fdf21e778",
+                                "id": str(uuid.uuid4()),
                                 "text": "",
                                 "correct": False
                             },
                             {
-                                "id": "5b5ca649-e1b2-4408-9afa-73a1db0082ef",
+                                "id": str(uuid.uuid4()),
                                 "text": "",
                                 "correct": False
                             },
                             {
-                                "id": "c0359df6-3266-4632-a07b-37a0d06a602a",
+                                "id": str(uuid.uuid4()),
                                 "text": "",
                                 "correct": True
                             },
                             {
-                                "id": "5d98edbd-9c6c-49dc-b965-5373794eaf1e",
+                                "id": str(uuid.uuid4()),
                                 "text": "",
                                 "correct": False
                             }

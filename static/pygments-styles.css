@@ -1,0 +1,54 @@
+
+#code-output-editor {
+    position: fixed;
+
+}
+
+#code-output-display {
+    width: 95%;
+    background-color: white;
+
+}
+
+#code-output-final {
+    width: 95%;
+    color: white;
+}
+
+
+
+
+/* HW site styles */
+
+.snippet-row {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+}
+
+.line-number {
+    padding-right: 5px;
+}
+
+/* python colors */
+.python-comment {
+    color: grey;
+    font-style: italic;
+}
+
+.python-string {
+    color: #BA2121;
+}
+
+.python-number {
+    color: #f80eec;
+}   
+
+.python-property {
+    color: #008000;
+}
+
+.python-variable {
+    color: #1f84ff;
+}   
