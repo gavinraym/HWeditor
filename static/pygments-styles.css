@@ -1,9 +1,3 @@
-
-#code-output-editor {
-    position: fixed;
-
-}
-
 #code-output-display {
     width: 95%;
     background-color: white;
@@ -12,14 +6,11 @@
 
 #code-output-final {
     width: 95%;
+    padding: 10px;
     color: white;
 }
 
-
-
-
 /* HW site styles */
-
 .snippet-row {
     display: flex;
     flex-direction: row;
@@ -52,3 +43,42 @@
 .python-variable {
     color: #1f84ff;
 }   
+
+/* html colors */
+.html-attribute {
+    color: #008000;
+}
+.html-comment {
+    color: rgb(128, 128, 128);
+    font-style: italic;
+}
+.html-tag   {
+    color: #3c67b1;
+}
+.html-value {
+    color: #BA2121;
+}
+
+/* css-comment
+css-number
+css-property
+css-pseudoclass (e.g. :hover)
+css-string */
+
+/* css colors */
+.css-comment {
+    color: rgb(128, 128, 128);
+    font-style: italic;
+}
+.css-number {
+    color: #f80eec;
+}
+.css-property {
+    color: #008000;
+}
+.css-pseudoclass {
+    color: #1f84ff;
+}
+.css-string {
+    color: #BA2121;
+}

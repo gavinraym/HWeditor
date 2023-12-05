@@ -52,6 +52,12 @@ def open_save_dir():
     subprocess.run(['open', '-a', 'Finder', 'output/.'])
     return jsonify(), 200
 
+@app.route('/copy_to_clipboard', methods=['POST'])
+def copy_to_clipboard():
+    # Copy the text to the clipboard
+    subprocess.run(['pbcopy'], input=request.form['clip'].encode('utf-8'))
+    return jsonify(), 200
+
 # Practice Problem Generator routes
 @app.route('/practice-problem-generator/parse-gif', methods=['POST'])
 def parse_gif():
@@ -113,13 +119,6 @@ def upload():
 ## Code Snippet routes
 @app.route('/highlight', methods=['POST'])
 def highlight_code():
-
-    # Parse the JSON strings back to lists of integers if they are not empty or null
-    # mark_starts = json.loads(request.form.get('markStarts')) if request.form.get('markStarts') else []
-    # mark_ends = json.loads(request.form.get('markEnds')) if request.form.get('markEnds') else []
-    # strike_starts = json.loads(request.form.get('strikeStarts')) if request.form.get('strikeStarts') else []
-    # strike_ends = json.loads(request.form.get('strikeEnds')) if request.form.get('strikeEnds') else []
-
     return jsonify({"highlighted_code":snippets.highlight_code(
         request.form.get('code'), request.form.get('language')
     )}), 200

@@ -1,3 +1,8 @@
+
+
+# from pygments.lexers import PythonLexer as lexer
+from pygments.lexers.python import PythonLexer as lexer
+
 styleDict = {
     'class="c"':'class="python-comment"', # Comment
     'class="c1"':'class="python-comment"', # Comment.Single

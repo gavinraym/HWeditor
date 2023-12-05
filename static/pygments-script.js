@@ -1,38 +1,38 @@
 const codeInput = document.getElementById('code-input');
+const filenameInput = document.getElementById('filename-input');
 const languageSelect = document.getElementById('language-select');
 const actionSelect = document.getElementById("actionSelect");
 const codeOutput = document.getElementById('code-output-display');
 const finalOutput = document.getElementById('code-output-final');
-const markStarts = [];
-const markEnds = [];
-const strikeStarts = [];
-const strikeEnds = [];
+
 
 let highlightedCode = "";
+
+// Function to replace leading whitespace with &nbsp;
+function replaceLeadingWhitespaceWithNbsp(text) {
+    // Split the text into lines
+    const lines = text.split('\n');
+  
+    // Process each line and replace leading whitespace with &nbsp;
+    const processedLines = lines.map(line => {
+      const leadingWhitespace = line.match(/^\s*/)[0]; // Match leading whitespace
+      const nbspReplacement = '&nbsp;'.repeat(leadingWhitespace.length); // Create &nbsp; replacements
+      return line.replace(/^\s*/, nbspReplacement); // Replace leading whitespace
+    });
+  
+    // Join the processed lines back into a single string
+    return processedLines.join('\n');
+  }
 
 function updateHighlight() {
 
     let inputText = codeInput.value;
+    // if language is css:
+    if (languageSelect.value === 'css') {
+        inputText = replaceLeadingWhitespaceWithNbsp(inputText);
+    } 
 
     // combine the mark and strike arrays
-    const breaks = markStarts.concat(strikeStarts).concat(markEnds).concat(strikeEnds);
-    console.log(breaks);
-    console.log(breaks.sort((a, b) => b - a));
-    breaks.sort((a, b) => b - a).forEach((index) => {
-        console.log(index);
-        console.log(markStarts);
-        // Inside this function, 'index' will represent each value in the sorted array
-        if (markStarts.includes(index)) {
-            inputText = inputText.slice(0, index) + '`<mark>`' + inputText.slice(index);
-        } else if (strikeStarts.includes(index)) {
-            inputText = inputText.slice(0, index) + '`<del>`' + inputText.slice(index);
-        } else if (markEnds.includes(index)) {
-            inputText = inputText.slice(0, index) + '`</mark>`' + inputText.slice(index);
-        } else if (strikeEnds.includes(index)) {
-            inputText = inputText.slice(0, index) + '`</del>`' + inputText.slice(index);
-        }
-      });
-    console.log(inputText);
     const formData = new FormData();
     formData.append('code', inputText);
     formData.append('language', languageSelect.value);
@@ -46,10 +46,17 @@ function updateHighlight() {
     .then(response => response.json())
     .then(data => {
         // Handle the response data from the backend as needed
-        console.log('Success:', data);
         // Set the textContent of the output element to replace all children
-        codeOutput.innerHTML = data.highlighted_code;
-        finalOutput.textContent = data.highlighted_code;
+        '<span class="err">`</span><span class="css-property">nbsp</span><span class="err">`</span>'
+        const pattern = /<span class="([^"]*)">&amp;<\/span><span class="([^"]*)">nbsp<\/span><span class="([^"]*)">;<\/span>/g;
+
+        // Replace matching spans with custom content
+        const text = data.highlighted_code.replace(pattern, (match, class1, class2, class3) => {
+        // Replace with desired content, keeping the captured class attributes
+        return `New content for class1="${class1}" class2="${class2}" class3="${class3}"`;
+        });
+        codeOutput.innerHTML = text;
+        displayFinalOutput(text);
     })
     .catch(error => {
         console.error('Error:', error);
@@ -57,53 +64,116 @@ function updateHighlight() {
 
 }
 
+let isMouseDown = false;
+const hoveredNodes = [];
 
-codeInput.addEventListener('mouseup', () => {
+// Function to handle mouse down
+function handleMouseDown() {
+    console.log('handleMouseDown')
+    isMouseDown = true;
+    hoveredNodes.length = 0; // Clear the array on mouse down
+}
 
-    const selection = window.getSelection();
-    const selectedText = selection.toString();
+// Function to handle mouse move while mouse button is down
+function handleMouseMove(event) {
+    if (isMouseDown) {
+        // Get the target element under the mouse pointer
+        const targetElement = document.elementFromPoint(event.clientX, event.clientY);
 
-    if (selectedText) {
-
-        // Find the start and end indices of the selected lines
-        let startIndex = codeInput.selectionStart;
-
-        let endIndex = codeInput.selectionEnd;
-
-        // Add to mark or strike
-        if (actionSelect.value == "mark") {
-            markStarts.push(startIndex);
-            markEnds.push(endIndex);
-        } else if (actionSelect.value == "del") {
-            strikeStarts.push(startIndex);
-            strikeEnds.push(endIndex);
-        } else if (actionSelect.value == "clear") {
-            // remove all numbers between start and end from the mark and strike arrays
-            for (let i = startIndex; i < endIndex+1; i++) {
-                if (markStarts.includes(i)) {
-                    markStarts.splice(markStarts.indexOf(i), 1);
-                } else if (strikeStarts.includes(i)) {
-                    strikeStarts.splice(strikeStarts.indexOf(i), 1);
-                } else if (markEnds.includes(i)) {
-                    markEnds.splice(markEnds.indexOf(i), 1);
-                } else if (strikeEnds.includes(i)) {
-                    strikeEnds.splice(strikeEnds.indexOf(i), 1);
-                }
-            }
+        // Check if the target element is not in the array before adding it
+        if (
+            !hoveredNodes.includes(targetElement) &&
+            codeOutput.contains(targetElement) &&
+            // is not class snippet-row
+            !targetElement.classList.contains('snippet-row') &&
+            !targetElement.classList.contains('line-number') &&
+            !targetElement.classList.contains('code') &&
+            !targetElement.classList.contains('mark') &&
+            !targetElement.classList.contains('del')
+            ) {
+            // Push the target element into the array
+            hoveredNodes.push(targetElement);
+            console.log('Added to array');
+            console.log(targetElement);
+        } else {
         }
-        updateHighlight();
     }
-})
+}
+
+// Function to handle mouse up
+function handleMouseUp() {
+    const element = actionSelect.value;
+    isMouseDown = false;
+    
+    // Iterate over the nodes in the array on mouse up
+    hoveredNodes.forEach(node => {
+        // Do something with each node
+        console.log(node);
+        const markElement = document.createElement(element);
+
+        // Step 3: Replace the anchor node with the <mark> element
+        const parentElement = node.parentElement;
+        console.log(parentElement)
+        parentElement.replaceChild(markElement, node);
+
+        // Step 4: Add the anchor node as a child of the <mark> element
+        markElement.appendChild(node);
+    });
+
+    // Get the outer HTML of the selected content and its ancestors
+    const selectedHTML = codeOutput.innerHTML;
+
+    // Replace </div><div> with nothing in the innerHTML
+    let modifiedHTML = selectedHTML.replace(/<\/mark>(\s*)<mark>/g, (match, spaces) => spaces);
+    modifiedHTML = modifiedHTML.replace(/<\/del>(\s*)<del>/g, (match, spaces) => spaces);
+    
+    // Set the modified HTML back to the node
+    codeOutput.innerHTML = modifiedHTML;
+
+    displayFinalOutput(modifiedHTML);
+
+
+    // Set the inner HTML as the text content of finalOutput
+    
+
+}
+
+function displayFinalOutput(str) {
+    if (filenameInput.value) {
+        const filenamehtml = "<div class='snippet-row'><span class='filename'>" + filenameInput.value+ "</span></div>";
+        finalOutput.textContent =  filenamehtml + str;
+    } else {
+        finalOutput.textContent = str;
+    }
+}
 
 function clearAll() {
-    markStarts.length = 0;
-    markEnds.length = 0;
-    strikeStarts.length = 0;
-    strikeEnds.length = 0;
     updateHighlight();
 }
 
 function copyToClipboard() {
+    // make server call to /copy_to_clipboard
+    const formData = new FormData();
+    formData.append('clip', finalOutput.textContent);
 
-  console.log('copyToClipboard');
+    // Send the data to the backend using fetch
+    fetch('/copy_to_clipboard', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .catch (error => {
+        console.error('Error:', error);
+    });
+  
 }
+
+
+
+// Add event listeners
+document.addEventListener('mousedown', handleMouseDown);
+document.addEventListener('mousemove', handleMouseMove);
+document.addEventListener('mouseup', handleMouseUp);
+
+
+
