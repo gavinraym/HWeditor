@@ -166,3 +166,4 @@ cython_debug/
 .static/images/*
 output/*
 input/*
+*.pyc

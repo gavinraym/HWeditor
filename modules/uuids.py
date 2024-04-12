@@ -2,15 +2,18 @@ import os
 import uuid
 import json
 
+from . import INPUT_PATH, OUTPUT_PATH
 
 def new_id(): return str(uuid.uuid4())
 
 
 # Check if the script is being run from the root level
-output_dir = os.path.join("output")
-if not os.path.exists(output_dir):
+
+if not os.path.exists(OUTPUT_PATH):
     print("Please create an directory called 'output' at the root.")
-    exit(1)
+    print(OUTPUT_PATH)
+    print(os.getcwd())
+    exit()
 
 
 def rubric(data):
@@ -273,15 +276,14 @@ def process_file(file):
     data = process_dict(data)
     print("Data processed")
 
-    with open(os.path.join(output_dir, "project.json"), "w") as f:
+    with open(os.path.join(OUTPUT_PATH, "project.json"), "w") as f:
         json.dump(data, f, indent=4)
         
 def run():
-    for file in os.listdir(input_dir):
+    for file in os.listdir(INPUT_PATH):
         if file.endswith(".json"):
             process_file(file)
 
 
 if __name__ == "__main__":
-    input_dir = os.path.join("input")
     run()

@@ -5,16 +5,42 @@ import shutil
 import webbrowser
 import threading
 import subprocess
-from modules.pp import new_pp
-from modules import mcq_funcs, pp_funcs, uuids
+
 import json
+import sys
 
 from modules.snippets import snippets
 
-# Configuration settings
-app = Flask(__name__)
+script_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Change the current working directory to the script directory
+os.chdir(script_dir)
+
+input_path = "input"
+output_path = "output"
+templates_path = "templates"
+static_path = "static"
+
+
+if getattr(sys, 'frozen', False):
+    # If the app is running in a PyInstaller bundle
+    templates_path = os.path.join("..", "templates")
+    static_path = os.path.join("..", "static")
+    input_path = os.path.join("..", "input")
+    output_path = os.path.join("..", "output")
+
+os.makedirs(input_path, exist_ok=True)
+os.makedirs(output_path, exist_ok=True)
+
+
+# Initialize the Flask app with the specified template and static folders
+app = Flask(__name__, template_folder=templates_path, static_folder=static_path)
+
 app.config['DEBUG'] = True
 app.config['SECRET_KEY'] = 'your_secret_key_here'
+
+from modules.pp import new_pp
+from modules import mcq_funcs, pp_funcs, uuids
 
 # Main Routes
 @app.route('/')
@@ -49,7 +75,7 @@ def pick_code():
 @app.route('/open_save_dir', methods=['GET'])
 def open_save_dir():
     # Open the save directory
-    subprocess.run(['open', '-a', 'Finder', 'output/.'])
+    subprocess.run(['open', '-a', 'Finder', output_path])
     return jsonify(), 200
 
 @app.route('/copy_to_clipboard', methods=['POST'])

@@ -2,6 +2,7 @@ import os
 import uuid
 import json
 import sys
+from . import OUTPUT_PATH, INPUT_PATH
 
 
 def new_pp():
@@ -112,5 +113,5 @@ def new_pp():
             }
         }
 
-        with open(os.path.join("output", name + "-" + str(num) + ".json"), "w") as f:
+        with open(os.path.join(OUTPUT_PATH, name + "-" + str(num) + ".json"), "w") as f:
             json.dump(data, f, indent=4)

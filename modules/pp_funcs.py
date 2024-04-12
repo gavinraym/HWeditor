@@ -3,6 +3,7 @@ import shutil
 from PIL import Image
 from modules.pp import new_pp
 import json
+from . import OUTPUT_PATH, INPUT_PATH
 
 def parse_gif(gif_file):
 
@@ -40,12 +41,11 @@ def save_card(num_mcqs, filename, projectname, card):
 # Get 'num_mcqs' 'filename' and 'card' from the request
 
     # Get the file paths
-    save_path = 'output'
-    project_path = os.path.join(save_path, projectname )
+    project_path = os.path.join(OUTPUT_PATH, projectname )
     assets_path = os.path.join(project_path, 'assets')
 
     # Create the directories if they don't exist
-    for path in [save_path, project_path, assets_path]:
+    for path in [OUTPUT_PATH, project_path, assets_path]:
         if not os.path.exists(path):
             os.makedirs(path)
 
@@ -56,5 +56,5 @@ def save_card(num_mcqs, filename, projectname, card):
     pp_data, course_data = new_pp(filename, num_mcqs)
     with open(os.path.join(project_path, 'project.json'), 'w') as f:
         json.dump(pp_data, f, indent=4)
-    with open(os.path.join(save_path, 'course_data.txt'), 'a') as f:
+    with open(os.path.join(OUTPUT_PATH, 'course_data.txt'), 'a') as f:
         f.write(course_data)    
