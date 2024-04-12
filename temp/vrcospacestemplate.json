@@ -1,0 +1,160 @@
+{
+    "name": "",
+    "media": {
+      "url": "",
+      "type": "image"
+    },
+    "title": "",
+    "language": "CoBlocks",
+    "vocabulary": "#include(course://vocabulary.json)",
+    "activities": {
+      "example-project": {
+        "url": "https://edu.cospaces.io/",
+        "tool": "cospaces",
+        "action": "render"
+      },
+      "cospace-edit": {
+        "id": "student-project",
+        "tool": "cospaces",
+        "action": "edit",
+        "cospaces": {
+          "title": "Panic Party",
+          "group": true
+        }
+      }
+    },
+    "section_groups": [
+      {
+        "title": "INTRO",
+        "sections": [
+          {
+            "title": "Overview",
+            "steps": [
+              {
+                "title": "",
+                "block_groups": [
+                  {
+                    "blocks": [
+                      {
+                        "text": "",
+                        "type": "text",
+                        "audio": ""
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "PLAN",
+        "sections": [
+          {
+            "title": "Planning",
+            "steps": [
+              {
+                "title": "",
+                "block_groups": [
+                  {
+                    "blocks": [
+                      {
+                        "text": "",
+                        "type": "text",
+                        "audio": ""
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "PROGRAM",
+        "sections": [
+          {
+            "title": "",
+            "steps": [
+              {
+                "title": "",
+                "activity_id": "cospace-edit",
+                "block_groups": [
+                  {
+                    "blocks": [
+                      {
+                        "text": "",
+                        "type": "text",
+                        "variant": "numbered"
+                      },
+                      {
+                        "type": "media",
+                        "media": {
+                          "url": "",
+                          "type": "video"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "UUID",
+        "title": "SUBMIT",
+        "sections": [
+          {
+            "id": "e622fb05-b29a-499d-9e24-8feb8a101986",
+            "title": "Review Your Work",
+            "steps": [
+              {
+                "id": "ac584892-c7c3-4763-bd67-0ca65a6074ee",
+                "title": "Checking Your Project",
+                "activity_id": "cospace-edit",
+                "block_groups": [
+                  {
+                    "id": "UUID",
+                    "blocks": [
+                      {
+                        "id": "UUID",
+                        "text": "Your project must have:",
+                        "type": "text",
+                        "audio": "project://assets/audio/Intro - Project Example 2.wav"
+                      },
+                      {
+                        "id": "adf506d7-b951-45a8-9aed-6ba3e44135c9",
+                        "type": "checkpoint",
+                        "title": "Project Rubric",
+                        "variant": "rubric",
+                        "categories": [
+                          {
+                            "type": "computer-science"
+                          },
+                          {
+                            "type": "interdisciplinary-learning"
+                          },
+                          {
+                            "type": "collaboration"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+  
+
+Events = Yellow
+Actions  = Purple
+Control = Orange

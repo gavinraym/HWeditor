@@ -1,0 +1,910 @@
+{
+  "name": "Passion Project",
+  "title": "Passion Project",
+  "comment": "Level 3",
+  "media": {
+    "url": "project://assets/title-card-passion-project.gif",
+    "type": "image"
+  },
+  "language": "CoBlocks",
+  "vocabulary": "#include(course://vocabulary.json)",
+  "feedback": "#include(course://feedback.json)",
+  "teacher_guide": "https://drive.google.com/file/d/121YEd3vNbGOQfeWVneq1awok8O82Ceg9/view?usp=drive_link",
+  "rubric": [
+    {
+      "title": "Computer Science",
+      "type": "computer-science",
+      "requirements": [
+        {
+          "id": "4956d501-8969-4a35-b7a5-f359afd50094",
+          "text": "My project includes at least <b>two scripts</b>."
+        },
+        {
+          "id": "15264eaf-4677-4811-8316-c5b2641f716d",
+          "text": "My project includes a <samp data-coblocks-type='functions'>public function</samp> <b>with a parameter that is called in a different script</b>."
+        },
+        {
+          "id": "238044a5-1d8a-4a12-b615-66e68d7d45e4",
+          "text": "My project includes a <samp data-coblocks-type='data'>CoSpace property</samp> that is used to <b>store information across two scripts</b>."
+        },
+        {
+          "id": "c8edd412-cffa-415a-b104-6845c278edaa",
+          "text": "My project includes at least <b>two different types of <samp data-coblocks-type='control'>loops</samp></b>."
+        },
+        {
+          "id": "636181af-2334-4c60-8cc9-ed5920c250b4",
+          "text": "My project includes at least <b>two</b> <samp data-coblocks-type='control'>conditionals</samp>."
+        },
+        {
+          "id": "6fbb36c4-17eb-4d5c-98ff-d1ccf7df3761",
+          "text": "My project includes a <samp data-coblocks-type='control'>conditional</samp> that <b>uses the <samp data-coblocks-type='data'>length of a [list]</samp> in the condition</b>."
+        },
+        {
+          "id": "26b78791-6754-4ca7-a5a1-639f0d5c7dc6",
+          "text": "My project includes at least <b>three items that can be <samp data-coblocks-type='data'>added</samp> or <samp data-coblocks-type='data'>removed</samp> from a <samp data-coblocks-type='data'>list</samp> by clicking on the item</b>."
+        }
+      ]
+    },
+    {
+      "title": "Interdisciplinary Learning",
+      "type": "interdisciplinary-learning",
+      "requirements": [
+        {
+          "id": "163baab8-fc31-433e-a198-646c622e60b5",
+          "text": "My project includes <b>unique scenery, events, and characters</b>."
+        }
+      ]
+    },
+    {
+      "title": "Creativity",
+      "type": "creativity",
+      "subtitle": "<b>One or more of the following:</b>",
+      "requirements": [
+        {
+          "id": "415f2f92-844b-494c-95aa-aee61a6468de",
+          "text": "<b>Demonstrates originality:</b> My project includes characters, animals, or other objects that are unusual, innovative, or clever."
+        },
+        {
+          "id": "119f5729-fdf1-455a-92d2-af1dd2fabc2c",
+          "text": "<b>Draws on other sources:</b> My project includes an engaging scenario based on my own creative vision or outside creative influences."
+        },
+        {
+          "id": "c92acad0-fcbf-473c-9a64-df1415042bd9",
+          "text": "<b>Excels in visual design:</b> My project includes characters, animals, or other objects that are thoughtfully placed in the scene."
+        },
+        {
+          "id": "cedd4c7c-c296-4e9f-abfb-14db30d5f367",
+          "text": "<b>Uses humor:</b> My project includes funny or impractical objects and characters."
+        }
+      ]
+    }
+  ],
+  "activities": {
+    "cospace-edit": {
+      "id": "student-project",
+      "tool": "cospaces",
+      "action": "edit",
+
+      "cospaces": {
+        "title": "Level 3 Passion Project"
+      }
+    }
+  },
+  "section_groups": [
+    {
+      "id": "UUID",
+      "title": "INTRO",
+      "sections": [
+        {
+          "id": "7228d719-8e47-4fb5-89d3-3b4538ea2f7d",
+          "title": "Overview",
+          "steps": [
+            {
+              "id": "c374e082-8383-410a-9528-ced1bab0f44c",
+              "title": "Project Theme",
+              "block_groups": [
+                {
+                  "id": "UUID",
+                  "blocks": [
+                    {
+                      "id": "UUID",
+                      "type": "text",
+                      "text": "In this project, you will create and design a CoSpace of your choice. Use the skills you've learned in this level, and follow any guidance given by your teacher."
+                    }
+                  ]
+                },
+                {
+                  "id": "UUID",
+                  "variant": "transparent",
+                  "blocks": [
+                    {
+                      "id": "UUID",
+                      "type": "text",
+                      "text": "<img style='width: 100%; max-width: 500px; display: block; margin-left: auto; margin-right: auto' src='course://assets/project-theme-vr.png'>"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "0ec54961-45b7-45f5-89b0-c920a2c01b38",
+              "title": "Project Rubric",
+              "block_groups": [
+                {
+                  "id": "UUID",
+                  "variant": "transparent",
+                  "blocks": [
+                    {
+                      "id": "UUID",
+                      "text": "<b>This rubric is how your project will be scored. It is the to-do list for your project. Click <a data-printable-rubric>here</a> to download the rubric.</b>",
+                      "type": "text"
+                    }
+                  ]
+                },
+                {
+                  "id": "UUID",
+                  "blocks": [
+                    {
+                      "id": "UUID",
+                      "type": "rubric",
+                      "title": "Scoring Rubric"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "UUID",
+      "title": "PLAN",
+      "sections": [
+        {
+          "id": "37d95ecf-2cab-4c61-834c-592068b51a42",
+          "title": "Planning",
+          "steps": [
+            {
+              "id": "94a00f00-0247-4928-8b52-0891f24bec6e",
+              "title": "Plan Your CoSpace",
+              "block_groups": [
+                {
+                  "id": "UUID",
+                  "blocks": [
+                    {
+                      "id": "UUID",
+                      "type": "text",
+                      "text": "Describe what will happen in your CoSpace. Get your teacher's approval before continuing."
+                    }
+                  ]
+                },
+                {
+                  "id": "UUID",
+                  "blocks": [
+                    {
+                      "id": "838acd77-4203-45b1-a7f0-6bfba8fb2ef8",
+                      "type": "checkpoint",
+                      "variant": "short_answer",
+                      "title": "Planning",
+                      "question": "What will happen in your CoSpace?"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "UUID",
+      "title": "PROGRAM",
+      "sections": [
+        {
+          "id": "755e59f0-3dc3-4501-b5ac-276307f9cea2",
+          "title": "Guidelines",
+          "steps": [
+            {
+              "id": "1ced0b6f-30b4-4448-a740-1ad587e49481",
+              "title": "Build the Scene",
+              "activity_id": "cospace-edit",
+              "block_groups": [
+                {
+                  "id": "UUID",
+                  "blocks": [
+                    {
+                      "id": "UUID",
+                      "text": "Click on the Environment tab and then click the \"Edit\". Choose an environment for your scene.",
+                      "type": "text",
+                      "variant": "numbered"
+                    },
+                    {
+                      "id": "UUID",
+                      "type": "media",
+                      "media": {
+                        "url": "project://assets/program/open-your-project-2.mp4",
+                        "type": "video"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "UUID",
+                  "blocks": [
+                    {
+                      "id": "UUID",
+                      "text": "Use objects from the Library to build your scene.",
+                      "type": "text",
+                      "variant": "numbered"
+                    },
+                    {
+                      "id": "UUID",
+                      "type": "media",
+                      "media": {
+                        "url": "project://assets/program/build-the-scene-1.mp4",
+                        "type": "video"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "1970a132-326b-41bb-b01e-32861f264acc",
+              "title": "Create a New Script",
+              "activity_id": "cospace-edit",
+              "block_groups": [
+                {
+                  "id": "UUID",
+                  "blocks": [
+                    {
+                      "id": "UUID",
+                      "text": "Create a new CoBlocks <a data-computer-science-vocab='script'>script</a>. Give the script a descriptive name.<br><br>Continue using both scripts as you code your project.",
+                      "type": "text",
+                      "variant": "numbered"
+                    },
+                    {
+                      "id": "UUID",
+                      "type": "media",
+                      "media": {
+                        "url": "project://assets/program/create-a-new-script-1.mp4",
+                        "type": "video"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "UUID",
+                  "blocks": [
+                    {
+                      "id": "UUID",
+                      "type": "label",
+                      "text": "Project Tip"
+                    },
+                    {
+                      "id": "UUID",
+                      "text": "Consider the purpose of each script. Try to group code together that is related to each other and separate from the code in the other script.",
+                      "type": "text"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "02cb2915-680c-4672-abff-592ecdb99f3d",
+              "title": "Create a Public Function",
+              "activity_id": "cospace-edit",
+              "block_groups": [
+                {
+                  "id": "UUID",
+                  "blocks": [
+                    {
+                      "id": "UUID",
+                      "text": "Create a <samp data-coblocks-type='functions'>public function</samp> with at least one parameter.",
+                      "type": "text",
+                      "variant": "numbered"
+                    },
+                    {
+                      "id": "UUID",
+                      "type": "media",
+                      "media": {
+                        "url": "project://assets/program/create-a-public-function-1.mp4",
+                        "type": "video"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "UUID",
+                  "blocks": [
+                    {
+                      "id": "UUID",
+                      "type": "label",
+                      "text": "Project Tip"
+                    },
+                    {
+                      "id": "UUID",
+                      "text": "Consider how the <samp data-coblocks-type='functions'>function</samp> will be used in both <a data-computer-science-vocab='script'>scripts</a>.",
+                      "type": "text"
+                    }
+                  ]
+                },
+                {
+                  "id": "UUID",
+                  "blocks": [
+                    {
+                      "id": "UUID",
+                      "text": "Call the <samp data-coblocks-type='functions'>function</samp> in both of your scripts.",
+                      "type": "text",
+                      "variant": "numbered"
+                    },
+                    {
+                      "id": "UUID",
+                      "type": "media",
+                      "media": {
+                        "url": "project://assets/program/create-a-public-function-2.mp4",
+                        "type": "video"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "001d28e1-f3e2-4c14-a942-3c3e61d64829",
+              "title": "Use Loops",
+              "activity_id": "cospace-edit",
+              "block_groups": [
+                {
+                  "id": "UUID",
+                  "blocks": [
+                    {
+                      "id": "UUID",
+                      "text": "Use a <samp data-coblocks-type='control'>loop</samp> of your choice in either of your <a data-computer-science-vocab='script'>scripts</a>.",
+                      "type": "text",
+                      "variant": "numbered"
+                    },
+                    {
+                      "id": "UUID",
+                      "type": "media",
+                      "media": {
+                        "url": "project://assets/program/use-loops-1.mp4",
+                        "type": "video"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "UUID",
+                  "blocks": [
+                    {
+                      "id": "UUID",
+                      "text": "Use a different type of <samp data-coblocks-type='control'>loop</samp> in either of your <a data-computer-science-vocab='script'>scripts</a>.",
+                      "type": "text",
+                      "variant": "numbered"
+                    },
+                    {
+                      "id": "UUID",
+                      "type": "media",
+                      "media": {
+                        "url": "project://assets/program/use-loops-2.mp4",
+                        "type": "video"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "06aac7ae-b62d-442e-961c-33918b3212cb",
+              "title": "Create a List",
+              "activity_id": "cospace-edit",
+              "block_groups": [
+                {
+                  "id": "UUID",
+                  "blocks": [
+                    {
+                      "id": "UUID",
+                      "text": "Create a <samp data-coblocks-type='data'>list</samp>.",
+                      "type": "text",
+                      "variant": "numbered"
+                    },
+                    {
+                      "id": "UUID",
+                      "type": "media",
+                      "media": {
+                        "url": "project://assets/program/create-a-list-1.mp4",
+                        "type": "video"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "UUID",
+                  "blocks": [
+                    {
+                      "id": "UUID",
+                      "text": "Use <samp data-coblocks-type='events'>when [object] is clicked</samp> CoBlocks to <samp data-coblocks-type='data'>add</samp> or <samp data-coblocks-type='data'>delete</samp> at least three items to and from the <a data-computer-science-vocab='list'>list</a> when clicked on.",
+                      "type": "text",
+                      "variant": "numbered"
+                    },
+                    {
+                      "id": "UUID",
+                      "type": "media",
+                      "media": {
+                        "url": "project://assets/program/create-a-list-2.mp4",
+                        "type": "video"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "UUID",
+                  "blocks": [
+                    {
+                      "id": "UUID",
+                      "type": "label",
+                      "text": "Project Tip"
+                    },
+                    {
+                      "id": "UUID",
+                      "text": "Use the <samp data-coblocks-type='data'>[list] contains [item]</samp> CoBlock to check if an item is already in the <samp data-coblocks-type='data'>list</samp>.",
+                      "type": "text"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "c3fb5221-46b9-4120-90a8-4f36f88edc25",
+              "title": "Use Conditionals",
+              "activity_id": "cospace-edit",
+              "block_groups": [
+                {
+                  "id": "UUID",
+                  "blocks": [
+                    {
+                      "id": "UUID",
+                      "text": "Create a <samp data-coblocks-type='control'>conditional</samp> that uses the <samp data-coblocks-type='data'>length of a [list]</samp> in the condition.",
+                      "type": "text",
+                      "variant": "numbered"
+                    },
+                    {
+                      "id": "UUID",
+                      "type": "media",
+                      "media": {
+                        "url": "project://assets/program/use-conditionals-1.mp4",
+                        "type": "video"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "UUID",
+                  "blocks": [
+                    {
+                      "id": "UUID",
+                      "text": "Create another <samp data-coblocks-type='control'>conditional</samp> with a condition of your choosing.",
+                      "type": "text",
+                      "variant": "numbered"
+                    },
+                    {
+                      "id": "UUID",
+                      "type": "media",
+                      "media": {
+                        "url": "project://assets/program/use-conditionals-2.mp4",
+                        "type": "video"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "6f8ca2b1-99db-4169-a08d-f663816b29e1",
+              "title": "Test in VR",
+              "activity_id": "cospace-edit",
+              "block_groups": [
+                {
+                  "id": "UUID",
+                  "blocks": [
+                    {
+                      "id": "UUID",
+                      "text": "Click the <img src='course://assets/inline-images/share-button-no-text.svg' align='center'/> share button and click <img src='course://assets/inline-images/submit-share.svg' align='center'/>.",
+                      "type": "text",
+                      "variant": "numbered"
+                    },
+                    {
+                      "id": "UUID",
+                      "type": "media",
+                      "media": {
+                        "url": "course://assets/test-in-vr/test-in-vr-a-1.mp4",
+                        "type": "video"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "UUID",
+                  "blocks": [
+                    {
+                      "id": "UUID",
+                      "text": "Choose \"Share unlisted\" and click the <img src='course://assets/inline-images/submit-share-unlisted-button.svg' align='center'/> button.",
+                      "type": "text",
+                      "variant": "numbered"
+                    },
+                    {
+                      "id": "UUID",
+                      "type": "media",
+                      "media": {
+                        "url": "course://assets/test-in-vr/test-in-vr-a-2.mp4",
+                        "type": "video"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "UUID",
+                  "blocks": [
+                    {
+                      "id": "UUID",
+                      "text": "Click the <img src='course://assets/inline-images/submit-share-link-button.svg' align='center'/> button to view your project's Share code.",
+                      "type": "text",
+                      "variant": "numbered"
+                    },
+                    {
+                      "id": "UUID",
+                      "type": "media",
+                      "media": {
+                        "url": "course://assets/test-in-vr/test-in-vr-a-3.mp4",
+                        "type": "video"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "UUID",
+                  "blocks": [
+                    {
+                      "id": "UUID",
+                      "text": "Enter your project's Share code on your headset to open your project in VR.",
+                      "type": "text",
+                      "variant": "numbered"
+                    },
+                    {
+                      "id": "UUID",
+                      "type": "media",
+                      "media": {
+                        "url": "course://assets/test-in-vr/test-in-vr-a-4.mp4",
+                        "type": "video"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "UUID",
+      "title": "SUBMIT",
+      "sections": [
+        {
+          "id": "39cf41cb-9454-4375-a9d1-d961497bfd53",
+          "title": "Review Your Work",
+          "steps": [
+            {
+              "id": "e9c74088-12b0-47fa-86ea-c056370799a5",
+              "title": "Project Requirements",
+              "activity_id": "cospace-edit",
+              "block_groups": [
+                {
+                  "id": "UUID",
+                  "variant": "transparent",
+                  "blocks": [
+                    {
+                      "id": "UUID",
+                      "text": "<b>Before you submit your project, check each box in the Scoring Rubric to make sure you've done every part of the project.</b>",
+                      "type": "text"
+                    }
+                  ]
+                },
+                {
+                  "id": "UUID",
+                  "blocks": [
+                    {
+                      "id": "b8651e3d-7247-41ef-8689-028b3a56dc88",
+                      "type": "checkpoint",
+                      "title": "Scoring Rubric",
+                      "variant": "rubric",
+                      "categories": [
+                        {
+                          "type": "computer-science"
+                        },
+                        {
+                          "type": "interdisciplinary-learning"
+                        },
+                        {
+                          "type": "creativity",
+                          "required": 1
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "guide": {
+      "section_group": {
+        "id": "UUID",
+        "title": "SCORING GUIDE",
+        "sections": [
+          {
+            "id": "bf6e5377-7b18-49b1-af6a-f8d115207d0c",
+            "title": "How to Score the Level 3: Passion Project",
+            "steps": [
+              {
+                "id": "d4ea2526-e480-4d33-a008-00ea0bd88d9d",
+                "title": "Scoring Steps",
+                "block_groups": [
+                  {
+                    "id": "UUID",
+                    "variant": "transparent",
+                    "blocks": [
+                      {
+                        "id": "UUID",
+                        "text": "<b>Use the steps below to score the Level 3 Passion Project. See the full rubric for this project <a data-rubric>here</a>.</b>",
+                        "type": "text"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "UUID",
+                    "variant": "direction",
+                    "blocks": [
+                      {
+                        "id": "UUID",
+                        "text": "Run the Student Project.",
+                        "type": "text"
+                      }
+                    ]
+                  },
+ 
+                  {
+                    "id": "UUID",
+                    "blocks": [
+                      {
+                        "id": "UUID",
+                        "text": "Does the project have a coherent theme or purpose?",
+                        "type": "text",
+                        "variant": "numbered"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "UUID",
+                    "variant": "direction",
+                    "blocks": [
+                      {
+                        "id": "UUID",
+                        "text": "Review the code.",
+                        "type": "text"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "UUID",
+                    "blocks": [
+                      {
+                        "id": "UUID",
+                        "text": "Do you see at least two CoBlock scripts? <a data-rubric-requirement=4956d501-8969-4a35-b7a5-f359afd50094>See rubric</a>.",
+                        "type": "text",
+                        "variant": "numbered"
+                      },
+                      {
+                        "id": "UUID",
+                        "type": "media",
+                        "media": {
+                          "url": "project://assets/scoring-guide/scripts.png",
+                          "type": "image"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "UUID",
+                    "blocks": [
+                      {
+                        "id": "UUID",
+                        "text": "Do you see a <samp data-coblocks-type='functions'>public function</samp> in any of the scripts? Does the function have a parameter? Is the function being called in a different script? <a data-rubric-requirement=15264eaf-4677-4811-8316-c5b2641f716d>See rubric</a>.",
+                        "type": "text",
+                        "variant": "numbered"
+                      },
+                      {
+                        "id": "UUID",
+                        "type": "media",
+                        "media": {
+                          "url": "project://assets/scoring-guide/public-function.png",
+                          "type": "image"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "UUID",
+                    "blocks": [
+                      {
+                        "id": "UUID",
+                        "text": "Do you see a <samp data-coblocks-type='data'>CoSpace property</samp>? Is the <samp data-coblocks-type='data'>CoSpace property</samp> being called in more than one script? <a data-rubric-requirement=238044a5-1d8a-4a12-b615-66e68d7d45e4>See rubric</a>.",
+                        "type": "text",
+                        "variant": "numbered"
+                      },
+                      {
+                        "id": "UUID",
+                        "type": "media",
+                        "media": {
+                          "url": "project://assets/scoring-guide/cospace-property.png",
+                          "type": "image"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "UUID",
+                    "blocks": [
+                      {
+                        "id": "UUID",
+                        "text": "Do you see two different types of <samp data-coblocks-type='control'>loops</samp> in any of the scripts? <a data-rubric-requirement=c8edd412-cffa-415a-b104-6845c278edaa>See rubric</a>.",
+                        "type": "text",
+                        "variant": "numbered"
+                      },
+                      {
+                        "id": "UUID",
+                        "type": "media",
+                        "media": {
+                          "url": "project://assets/scoring-guide/loops.png",
+                          "type": "image"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "UUID",
+                    "blocks": [
+                      {
+                        "id": "UUID",
+                        "text": "Do you see at least two <samp data-coblocks-type='control'>[if]</samp> or <samp data-coblocks-type='control'>[if else]</samp> CoBlocks in any of the scripts? <a data-rubric-requirement=636181af-2334-4c60-8cc9-ed5920c250b4>See rubric</a>.",
+                        "type": "text",
+                        "variant": "numbered"
+                      },
+                      {
+                        "id": "UUID",
+                        "type": "media",
+                        "media": {
+                          "url": "project://assets/scoring-guide/conditionals.png",
+                          "type": "image"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "UUID",
+                    "blocks": [
+                      {
+                        "id": "UUID",
+                        "text": "Do you see a <samp data-coblocks-type='control'>conditional</samp> with a condition that checks the <samp data-coblocks-type='data'>length of a [list]</samp> in any of the scripts? <a data-rubric-requirement=6fbb36c4-17eb-4d5c-98ff-d1ccf7df3761>See rubric</a>.",
+                        "type": "text",
+                        "variant": "numbered"
+                      },
+                      {
+                        "id": "UUID",
+                        "type": "media",
+                        "media": {
+                          "url": "project://assets/scoring-guide/length-of-list.png",
+                          "type": "image"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "UUID",
+                    "blocks": [
+                      {
+                        "id": "UUID",
+                        "text": "Do you see at least three objects that can be <samp data-coblocks-type='data'>added</samp> or <samp data-coblocks-type='data'>removed</samp> to and from a <samp data-coblocks-type='data'>list</samp> by <samp data-coblocks-type='events'>clicking</samp> on them? A function may be used to add or remove the items. <a data-rubric-requirement=26b78791-6754-4ca7-a5a1-639f0d5c7dc6>See rubric</a>.",
+                        "type": "text",
+                        "variant": "numbered"
+                      },
+                      {
+                        "id": "UUID",
+                        "type": "media",
+                        "media": {
+                          "url": "project://assets/scoring-guide/list.png",
+                          "type": "image"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "criteria": [
+      {
+        "title": "Computer Science",
+        "components": [
+          {
+            "id": "b8651e3d-7247-41ef-8689-028b3a56dc88",
+            "type": "checkpoint",
+            "variant": "rubric",
+            "categories": [
+              "computer-science"
+            ],
+            "weight": 80
+          }
+        ],
+        "contexts": [
+          {
+            "type": "activity",
+            "title": "Project",
+            "activity": "cospace-edit"
+          }
+        ]
+      },
+      {
+        "title": "Interdisciplinary Learning",
+        "components": [
+          {
+            "id": "b8651e3d-7247-41ef-8689-028b3a56dc88",
+            "type": "checkpoint",
+            "variant": "rubric",
+            "categories": [
+              "interdisciplinary-learning"
+            ],
+            "weight": 10
+          }
+        ],
+        "contexts": [
+          {
+            "type": "activity",
+            "title": "Project",
+            "activity": "cospace-edit"
+          }
+        ]
+      },
+      {
+        "title": "Creativity",
+        "components": [
+          {
+            "id": "b8651e3d-7247-41ef-8689-028b3a56dc88",
+            "type": "checkpoint",
+            "variant": "rubric",
+            "categories": [
+              "creativity"
+            ],
+            "weight": 10
+          }
+        ],
+        "contexts": [
+          {
+            "type": "activity",
+            "title": "Project",
+            "activity": "cospace-edit"
+          }
+        ]
+      }
+    ]
+  }
+}

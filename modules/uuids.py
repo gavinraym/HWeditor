@@ -27,6 +27,7 @@ def section_groups(data):
         block["id"] = "UUID"
 
         if block.get("type") and block["type"] == "checkpoint":
+            print("checkpoint...")
             block["id"] = new_id()
             data["temp"]["checkpoints"].append({
                 "title": step["title"],
@@ -40,22 +41,26 @@ def section_groups(data):
     def block_groups(block_group, step, section, section_group):
         block_group["id"] = "UUID"
         for block in block_group["blocks"]:
+            print("block...")
             blocks(block, block_group, step, section, section_group)
 
     def steps(step, section, section_group):
         step["id"] = new_id()
         if step.get("block_groups"):
             for block_group in step["block_groups"]:
+                print("Next block group")
                 block_groups(block_group, step, section, section_group)
 
     def sections(section, section_group):
         section["id"] = new_id()
         for step in section["steps"]:
+            print(step["title"])
             steps(step, section, section_group)
 
     for section_group in data["section_groups"]:
         section_group["id"] = "UUID"
         for section in section_group["sections"]:
+            print(section["title"])
             sections(section, section_group)
 
 
@@ -227,24 +232,47 @@ def criteria(data):
 def process_dict(data):
         
     # Add temp fields for storing checkpoint UUIDs
-    data["temp"] = dict()
-    data["temp"]["checkpoints"] = list()
-    data["scoring"] = dict()
+    try:
+        data["temp"] = dict()
+        data["temp"]["checkpoints"] = list()
+        data["scoring"] = dict()
+    except:
+        print("Error adding temp fields")
     
     # Process project data
-    if not data.get("id"): data = {"id": new_id(), **data}
-    if data.get("rubric"): rubric(data)
-    section_groups(data)
-    if data.get("activities"): activities(data)
-    criteria(data)
+    try:
+        if not data.get("id"): data = {"id": new_id(), **data}
+    except:
+        print("Error adding id")
+    try:
+        if data.get("rubric"): rubric(data)
+    except:
+        print("Error with rubric")
+    try:
+        section_groups(data)
+    except:
+        print("Error processing project data")
+    try:
+        if data.get("activities"): activities(data)
+        criteria(data)
+    except:
+        print("Error processing activity data")
     
     # Delete temp and save
     del data["temp"]
     return data
 
 def process_file(file):
-    data = json.load(file)
+    print("process file recieved")
+    try:
+        data = json.load(file)
+        print("File loaded")
+    except:
+        print("Error loading file")
+
     data = process_dict(data)
+    print("Data processed")
+
     with open(os.path.join(output_dir, "project.json"), "w") as f:
         json.dump(data, f, indent=4)
         
@@ -255,4 +283,5 @@ def run():
 
 
 if __name__ == "__main__":
+    input_dir = os.path.join("input")
     run()
