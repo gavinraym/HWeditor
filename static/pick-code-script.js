@@ -7,6 +7,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const formattedLines = inputLines.map(line => `"${line.replace(/\\/g, '\\\\').replace(/"/g, '\\"')}"`);
         const formattedOutput = `[${formattedLines.join(', ')}]`;
 
-        displayAreaPickcode.textContent = formattedOutput;
+        displayAreaPickcode.value = formattedOutput;
     });
 });
